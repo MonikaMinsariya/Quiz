@@ -1,26 +1,42 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-
+import img from './assets/quizzy-1s-286px.gif';
+import background from './assets/background.jpg';
+import mickey from './assets/1.gif';
 
 export class Home extends Component {
 
     render() {
         return (
-            <>
-                <div className='vh-100 p-5' style={{ backgroundImage: "url('https://static.vecteezy.com/system/resources/thumbnails/008/889/844/small/quiz-set-in-doodle-style-illustration-icon-question-symbol-for-print-and-design-quiz-and-exam-concept-isolated-element-on-black-background-collection-of-sign-for-school-and-event-vector.jpg')" }}>
-                    <div className='bg-light h-80 p-3 w-25 container text-center' style={{ marginTop: '80px' }}>
-                        <h1>Quiz App</h1>
-                        <img src="https://cdn-icons-png.flaticon.com/512/3409/3409542.png" className="App-logo mt-4" alt='logo' />
+            <> <section className="vh-100  bg-dark" style={{ backgroundImage: `url(${background})` }}>
+                <div className="mask d-flex align-items-center h-50 p-4">
+                    <div className="container h-50  mt-5">
+                        <div className="row d-flex justify-content-center align-items-center h-100">
+                            <div className="col-12 col-md-9 col-lg-7 col-xl-6">
+                                <div className="card" style={{ borderRadius: "15px" }}>
+                                    <div className="card-body p-4 text-center">
+                                        {/* <div className='vh-100 p-4' > */}
+                                        {/* <div> */}
+                                        {/* <h1 style={{ fontSize: '80px' }}>Quizzy</h1> */}
+                                        <img src={img} alt='appName' className='mb-2 mt-0 name-gif' />
+                                        <br />
+                                        <img src={mickey} className="img mb-2" alt='logo' />
 
-                        <center className='mt-5'>
-                            <Link className='btn btn-dark mx-2' to="/Registration">Register</Link>
+                                        <div className='mt-3'>
+                                            <Link className='btn btn-dark mx-4' to="/Registration">Register</Link>
 
-                            <Link className='btn btn-dark mx-2' to="/SignIn">SignIn</Link>
+                                            <Link className='btn btn-dark mx-4' to="/SignIn">SignIn</Link>
 
-                        </center>
+                                        </div>
+                                        {/* </div> */}
+                                        {/* </div> */}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
+            </section>
             </>
         )
     }

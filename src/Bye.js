@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import  pic  from './assets/2.png';
-
+import { Link } from 'react-router-dom';
+import by from './assets/by.gif';
 export class Welcome extends Component {
     render() {
         return (
@@ -13,11 +12,11 @@ export class Welcome extends Component {
                                 <div className="col-12 col-md-9 col-lg-7 col-xl-6">
                                     <div className="card" style={{ borderRadius: "15px" }}>
                                         <div className="card-body p-3 text-center">
-                                            <h1 style={{ fontSize: '5rem' }}>Welcome</h1>
-                                            <img src={pic} className="img mt-4" alt='logo' />
-                                            <center className='mt-5'>
-                                                <Link className='btn btn-dark mx-2' to="/Quizz">Let's play</Link>
-                                            </center>
+                                            <h1 style={{ fontSize: '5rem' }}>See You Soon</h1>
+                                            <img src={by} className="img mt-4" alt='logo' />
+                                            { <center className='mt-5'>
+                                                <Link className='btn btn-dark mx-2' to="/Quizz">play Again</Link>
+                                            </center> }
                                         </div>
                                     </div>
                                 </div>

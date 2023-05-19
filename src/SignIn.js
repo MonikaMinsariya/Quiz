@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-// import './SignIn.css';
-import { Link } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css'
+import { toast, ToastContainer, Bounce } from 'react-toastify';
+
+import { Link, Navigate } from 'react-router-dom';
 export class SignIn extends Component {
     constructor() {
         super();
@@ -8,31 +10,69 @@ export class SignIn extends Component {
             Email: '',
             Pwd: '',
             loginDetails: [],
+            redirect: false,
         }
     }
-
+    loginSuccess = () => toast.success('Login Successfully !', {
+        position: toast.POSITION.BOTTOM_RIGHT
+    });
+    loginFailed = () => toast.error('Login Failed !', {
+        position: toast.POSITION.BOTTOM_RIGHT
+    });
     handleChange = (event) => {
         const { name, value } = event.target;
         this.setState({
             [name]: value,
 
         })
-        // cconsole.log(this.state.Email,this.state.Pwd)
+        // console.log(this.state.Email,this.state.Pwd)
     }
-    handleSubmit = () => {
-        // console.log(this.state.loginDetails)
+    authorizeUser = () => {
+        let { Email, Pwd } = this.state;
+    
+        let filteredUser = this.state.loginDetails.find(item => (item.email = Email && item.password === Pwd))
+
+        if (filteredUser) {
+            alert('Login Successfully')
+            this.loginSuccess()
+            this.setState({ redirect: true })
+        }
+        else {
+
+            this.loginFailed();
+        }
+
     }
+    handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state.loginDetails);
+        this.authorizeUser();
+    }
+
     componentDidMount() {
-        let datafromLocal = JSON.parse(localStorage.getItem('Data'))
+        let datafromLocal = JSON.parse(localStorage.getItem('Register'))
+        // console.log(datafromLocal)
         this.setState({
             loginDetails: datafromLocal,
-        })
-        console.log(datafromLocal)
-        console.log(this.state.loginDetails)
+        });
     }
     render() {
         return (
             <>
+                <ToastContainer
+                    position="bottom-right"
+                    autoClose={4000}
+                    hideProgressBar
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable={false}
+                    pauseOnHover={false}
+                    theme="dark"
+                    transition={Bounce}
+                />
+                {this.state.redirect && <Navigate to='/Welcome' />}
                 <section className="vh-100  bg-dark">
                     <div className="mask d-flex align-items-center h-100">
                         <div className="container h-100">
