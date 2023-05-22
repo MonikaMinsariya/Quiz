@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import  pic  from './assets/2.png';
+import pic from './assets/2.png';
 
 export class Welcome extends Component {
     render() {
         return (
             <>
                 <section className="vh-100  bg-dark">
-                    <div className="mask d-flex align-items-center h-50">
-                        <div className="container h-50">
+                    <div className="mask d-flex align-items-center h-100">
+                        <div className="container h-100">
                             <div className="row d-flex justify-content-center align-items-center h-100">
                                 <div className="col-12 col-md-9 col-lg-7 col-xl-6">
                                     <div className="card" style={{ borderRadius: "15px" }}>
                                         <div className="card-body p-3 text-center">
-                                            <h1 style={{ fontSize: '5rem' }}>Welcome</h1>
+                                            <h1 style={{ fontSize: 'calc(30px + 6vmin)' }}>Welcome</h1>
                                             <img src={pic} className="img mt-4" alt='logo' />
                                             <center className='mt-5'>
                                                 <Link className='btn btn-dark mx-2' to="/Quizz">Let's play</Link>
