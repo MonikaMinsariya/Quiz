@@ -30,7 +30,7 @@ export class SignIn extends Component {
     authorizeUser = () => {
         let { Email, Pwd } = this.state;
     
-        let filteredUser = this.state.loginDetails.find(item => (item.email = Email && item.password === Pwd))
+        let filteredUser = this.state.loginDetails.find(item => (item.email === Email && item.password === Pwd))
 
         if (filteredUser) {
             alert('Login Successfully')
